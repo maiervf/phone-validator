@@ -10,7 +10,7 @@ use Core\Domain\PhoneNumber\Countries\UgandaPhone;
 
 class PhoneNumberFactory
 {
-	public static function createPhoneByCountry($prefix)
+	public static function createValidatorByCountry($prefix)
 	{
 		switch ($prefix) {
 			case 237:

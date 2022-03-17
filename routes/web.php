@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PhoneNumberController;
+use App\Http\Controllers\PhoneNumbersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,4 @@ use App\Http\Controllers\PhoneNumberController;
 |
 */
 
-Route::match(['get', 'post'], '/', [PhoneNumberController::class, 'index']);
+Route::match(['get', 'post'], '/', [PhoneNumbersController::class, 'index'])->name('index');

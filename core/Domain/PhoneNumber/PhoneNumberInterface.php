@@ -4,5 +4,6 @@ namespace Core\Domain\PhoneNumber;
 
 interface PhoneNumberInterface
 {
-	public function isValidNumber($number);
+	public function validateNumber($number) : bool;
+	public function getName() : string;
 }
