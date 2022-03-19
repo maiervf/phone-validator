@@ -5,9 +5,11 @@
 
 ## Installation
 
-- Clone the repository (git clone )
-- cd phoneValidator
+- Clone the repository (git clone https://github.com/maiervf/phone-validator.git)
+- cd phone-validator
 - composer install
+- cp .env.example .env
+- php artisan key:generate
 - php artisan serve
 - See the app running on 127.0.0.1:8000
 
