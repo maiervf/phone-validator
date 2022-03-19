@@ -17,7 +17,7 @@ class PhoneNumberEntity
 	{
 		$this->phoneNumber = $phoneNumber;
 		$this->checkFormat();
-		$this->numberFormat();
+		$this->splitNumber();
 		$this->countryPhone = PhoneNumberFactory::createValidatorByCountry(
 			$this->countryCode
 		);
@@ -29,11 +29,11 @@ class PhoneNumberEntity
 			|| strpos($this->phoneNumber, ') ') === false;
 
 		if ($invalidNumber) {
-			throw new Exception("Invalid number format", 1);
+			throw new \Exception("Invalid number format", 1);
 		}
 	}
 
-	private function numberFormat()
+	private function splitNumber()
 	{
 		[$countryCode, $this->rawNumber] = explode(') ', $this->phoneNumber);
 		$this->countryCode = ltrim($countryCode, '(');

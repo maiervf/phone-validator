@@ -15,6 +15,7 @@
 
 ## Considerations
 
+- To run tests: php artisan test
 - To improve performance, we should add a column on the database, "validNumber", and use a script to validate and set the valid/invalid property before run it
 - Update the app (if exists) to not allow invalid numbers, or at least to save the register with the valid/invalid property
 - I used PHP to filter for valid/invalid numbers, it could be done with mysql, but I believe it is not the idea of the test
