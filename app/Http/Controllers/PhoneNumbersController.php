@@ -9,6 +9,13 @@ use App\Services\PhoneNumberService;
 class PhoneNumbersController extends Controller
 {
     private $phoneNumber;
+    private $countryList = [
+        '237' => 'Cameroon',
+        '251' => 'Ethiopia',
+        '212' => 'Morocco',
+        '258' => 'Mozambique',
+        '256' => 'Uganda'
+    ];
 
     public function __construct(PhoneNumberService $phoneNumber)
     {
@@ -17,8 +24,15 @@ class PhoneNumbersController extends Controller
 
     public function index(Request $request) : View
     {
-         return view('phoneNumber.index', [
-            'phoneNumbers' => $this->phoneNumber->paginate(10)
+        $paginator = $this->phoneNumber->paginate(
+            $request->all(),
+            $request->url(),
+            $request->query()
+        );
+
+        return view('phoneNumber.index', [
+            'phoneNumbers' => $paginator,
+            'countries' => $this->countryList
         ]);
     }
 }
